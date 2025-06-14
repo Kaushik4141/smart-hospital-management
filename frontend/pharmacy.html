@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hospital Management - Pharmacy</title>
+    <link rel="stylesheet" href="css/drug.css">
+    <link rel="stylesheet" href="css/menu.css">
+    <link rel="stylesheet" href="css/emergency.css">
+    <link rel="stylesheet" href="css/search-suggestions.css">
+</head>
+<body>
+    <!-- Menu Button -->
+    <button id="menuButton" class="menu-button" aria-label="Open menu" aria-expanded="false">
+        <span class="icon">☰</span>
+    </button>
+
+    <!-- Menu Overlay -->
+    <div id="menuOverlay" class="menu-overlay"></div>
+
+    <!-- Menu Dropdown -->
+    <div id="menuDropdown" class="menu-dropdown">
+        <nav class="menu-nav">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="counter.html">Counter Selection</a></li>
+                <li><a href="department.html">Department</a></li>
+                <li><a href="ward.html">Ward</a></li>
+                <li><a href="pharmacy.html" class="active">Pharmacy</a></li>
+                <li><a href="operation-theatre.html">Operation Theatre</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <header class="pharmacy-header">
+        <h1>Hospital Management System - Pharmacy</h1>
+        <nav class="nav-tabs">
+            <button class="tab-btn active" onclick="showTab('drug-management')">Drug Management</button>
+            <button class="tab-btn" onclick="showTab('inventory')">Inventory</button>
+            <button class="tab-btn" onclick="showTab('billing')">Billing</button>
+            <a href="index.html" class="btn btn-secondary">Back to Home</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <!-- Drug Management Tab -->
+        <div id="drug-management" class="tab-content active">
+            <div class="card">
+                <h2>Add New Drug</h2>
+                <form id="add-drug-form" class="form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="drug-name">Drug Name</label>
+                            <input type="text" id="drug-name" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="drug-code">Drug Code</label>
+                            <input type="text" id="drug-code" class="form-control" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="category">Category</label>
+                            <input type="text" id="category" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="manufacturer">Manufacturer</label>
+                            <input type="text" id="manufacturer" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="description">Description</label>
+                        <textarea id="description" class="form-control"></textarea>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="unit-price">Unit Price</label>
+                            <input type="number" id="unit-price" class="form-control" step="0.01" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="initial-stock">Initial Stock Quantity</label>
+                            <input type="number" id="initial-stock" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="unit">Unit</label>
+                            <select id="unit" class="form-control" required>
+                                <option value="Tablets">Tablets</option>
+                                <option value="Capsules">Capsules</option>
+                                <option value="Bottles">Bottles</option>
+                                <option value="Vials">Vials</option>
+                                <option value="Ampules">Ampules</option>
+                                <option value="Tubes">Tubes</option>
+                                <option value="Patches">Patches</option>
+                                <option value="Sachets">Sachets</option>
+                                <option value="ml">ml</option>
+                                <option value="mg">mg</option>
+                                <option value="g">g</option>
+                            </select>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Add Drug</button>
+                </form>
+            </div>
+
+            <div class="card mt-3">
+                <h2>Drug List</h2>
+                <div class="search-container">
+                    <input type="text" id="drug-search" class="form-control" placeholder="Search drugs...">
+                </div>
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Code</th>
+                                <th>Category</th>
+                                <th>Unit Price</th>
+                                <th>Stock</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="drug-list"></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Inventory Tab -->
+        <div id="inventory" class="tab-content">
+            <div class="card">
+                <h2>Inventory Overview</h2>
+                <div class="stats-container">
+                    <div class="stat-card">
+                        <h3>Total Drugs</h3>
+                        <p id="total-drugs">0</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Low Stock</h3>
+                        <p id="low-stock">0</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Out of Stock</h3>
+                        <p id="out-of-stock">0</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card mt-3">
+                <h2>Inventory List</h2>
+                <div class="search-container">
+                    <input type="text" id="inventory-search" class="form-control" placeholder="Search inventory...">
+                </div>
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Code</th>
+                                <th>Category</th>
+                                <th>Stock</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="inventory-list"></tbody>
+                    </table>
+                </div>
+            </div>
+            
+            <!-- Prescriptions Section -->
+            <div class="card mt-3">
+                <h2>Pending Prescriptions</h2>
+                <div class="stats-container">
+                    <div class="stat-card">
+                        <h3>Total Medicines</h3>
+                        <p id="totalMedicines">0</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Low Stock Items</h3>
+                        <p id="lowStock">0</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Pending Orders</h3>
+                        <p id="pendingOrders">0</p>
+                    </div>
+                </div>
+                <div id="prescriptionList" class="prescription-container">
+                    <!-- Prescription items will be loaded here -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Billing Tab -->
+        <div id="billing" class="tab-content">
+            <div class="card">
+                <h2>Generate Bill</h2>
+                <form id="billing-form" class="form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="patient-search">Patient</label>
+                            <div class="patient-search-container">
+                                <input type="text" id="patient-search" class="form-control" placeholder="Search patient..." autocomplete="off" required>
+                                <div class="patient-suggestions" style="display:none;"></div>
+                                <input type="hidden" id="bill-patient" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="bill-doctor">Doctor</label>
+                            <input type="text" id="bill-doctor" class="form-control" placeholder="Doctor's name">
+                        </div>
+                    </div>
+
+                    <div class="card mt-3">
+                        <h3>Add Medicines</h3>
+                        <div id="medicine-list">
+                            <div class="medicine-entry form-row">
+                                <div class="form-group">
+                                    <label>Medicine</label>
+                                    <select class="form-control medicine-select" required>
+                                        <option value="">Select medicine...</option>
+                                    </select>
+                                    <input type="hidden" class="medicine-select-hidden" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Quantity</label>
+                                    <input type="number" class="form-control medicine-quantity" required min="1">
+                                </div>
+                                <div class="form-group">
+                                    <label>Unit Price</label>
+                                    <input type="number" class="form-control medicine-price" readonly>
+                                </div>
+                                <div class="form-group">
+                                    <label>Total</label>
+                                    <input type="number" class="form-control medicine-total" readonly>
+                                </div>
+                                <div class="form-group">
+                                    <label>&nbsp;</label>
+                                    <button type="button" class="btn btn-danger remove-medicine">Remove</button>
+                                </div>
+                            </div>
+                        </div>
+                        <button type="button" id="add-medicine-row" class="btn btn-secondary mt-2">Add Another Medicine</button>
+                    </div>
+
+                    <div class="form-row mt-3">
+                        <div class="form-group">
+                            <label for="bill-subtotal">Subtotal</label>
+                            <input type="number" id="bill-subtotal" class="form-control" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label for="bill-tax">Tax (%)</label>
+                            <input type="number" id="bill-tax" class="form-control" value="5" min="0" max="100">
+                        </div>
+                        <div class="form-group">
+                            <label for="bill-total">Total</label>
+                            <input type="number" id="bill-total" class="form-control" readonly>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Generate Bill</button>
+                </form>
+            </div>
+
+            <div class="card mt-3">
+                <h2>Recent Bills</h2>
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Bill Number</th>
+                                <th>Date</th>
+                                <th>Patient</th>
+                                <th>Amount</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="bills-list"></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Drug Details Modal -->
+    <div id="drug-details-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Drug Details</h2>
+            <div id="drug-details"></div>
+            <div class="modal-actions">
+                <button id="edit-drug-btn" class="btn btn-primary">Edit</button>
+                <button id="delete-drug-btn" class="btn btn-danger">Delete</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Edit Drug Modal -->
+    <div id="edit-drug-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Edit Drug</h2>
+            <form id="edit-drug-form" class="form">
+                <input type="hidden" id="edit-drug-id">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="edit-name">Drug Name</label>
+                        <input type="text" id="edit-name" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="edit-code">Drug Code</label>
+                        <input type="text" id="edit-code" class="form-control" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="edit-category">Category</label>
+                        <input type="text" id="edit-category" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="edit-manufacturer">Manufacturer</label>
+                        <input type="text" id="edit-manufacturer" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="edit-description">Description</label>
+                    <textarea id="edit-description" class="form-control"></textarea>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="edit-unit-price">Unit Price</label>
+                        <input type="number" id="edit-unit-price" class="form-control" step="0.01" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="edit-unit">Unit</label>
+                        <select id="edit-unit" class="form-control" required>
+                            <option value="Tablets">Tablets</option>
+                            <option value="Capsules">Capsules</option>
+                            <option value="Bottles">Bottles</option>
+                            <option value="Vials">Vials</option>
+                            <option value="Ampules">Ampules</option>
+                            <option value="Tubes">Tubes</option>
+                            <option value="Patches">Patches</option>
+                            <option value="Sachets">Sachets</option>
+                            <option value="ml">ml</option>
+                            <option value="mg">mg</option>
+                            <option value="g">g</option>
+                        </select>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary">Update Drug</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Restock Modal -->
+    <div id="restock-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Restock Drug</h2>
+            <form id="restock-form" class="form">
+                <input type="hidden" id="restock-drug-id">
+                <div class="form-group">
+                    <label for="restock-drug-name">Drug Name</label>
+                    <input type="text" id="restock-drug-name" class="form-control" readonly>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="current-stock">Current Stock</label>
+                        <input type="number" id="current-stock" class="form-control" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label for="add-stock">Add Stock</label>
+                        <input type="number" id="add-stock" class="form-control" required min="1">
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary">Restock</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Delete Confirmation Modal -->
+    <div id="delete-confirm-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Confirm Delete</h2>
+            <p>Are you sure you want to delete this drug? This action cannot be undone.</p>
+            <div class="modal-actions">
+                <button id="confirm-delete-btn" class="btn btn-danger">Delete</button>
+                <button id="cancel-delete-btn" class="btn btn-secondary">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="js/pharmacy.js"></script>
+</body>
+</html>
+                
+           

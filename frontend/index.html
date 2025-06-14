@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Wenlock Hospital Management System</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/menu.css">
+    <link rel="stylesheet" href="css/emergency.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Menu Button -->
+    <button id="menuButton" class="menu-button" aria-label="Open menu" aria-expanded="false">
+        <span class="icon">☰</span>
+    </button>
+
+    <!-- Menu Overlay -->
+    <div id="menuOverlay" class="menu-overlay"></div>
+
+    <!-- Menu Dropdown -->
+    <div id="menuDropdown" class="menu-dropdown">
+        <div class="menu-header">
+            <h2>Smart Hospital</h2>
+        </div>
+        <ul class="menu-items">
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="patient.html">Patient Registration</a></li>
+            <li><a href="counter.html">Counter Display</a></li>
+            <li><a href="staff-counter.html">Staff Counter</a></li>
+            <li><a href="department.html">Department Display</a></li>
+            <li><a href="ward.html">Ward Display</a></li>
+            <li><a href="operation-theatre.html">Operation Theatre</a></li>
+            <li><a href="staff-ot.html">Staff OT</a></li>
+            <li><a href="pharmacy.html">Pharmacy</a></li>
+            <li><a href="staff.html">Staff Dashboard</a></li>
+            <li><a href="queue.html">Queue</a></li>
+        </ul>
+    </div>
+
+    <main class="container">
+        <div class="hero-section">
+            <h2>Welcome to Smart Wenlock Hospital Management System</h2>
+            <p>A modern solution for efficient hospital management</p>
+        </div>
+
+        <div class="features-grid">
+            <div class="feature-card">
+                <h3>Patient Management</h3>
+                <p>Register and manage patients with real-time tracking</p>
+                <a href="patient.html" class="feature-link">Go to Patient Registration</a>
+            </div>
+            <div class="feature-card">
+                <h3>Counter Display</h3>
+                <p>Real-time queue management and patient tracking</p>
+                <a href="counter.html" class="feature-link">View Counter Display</a>
+            </div>
+            <div class="feature-card">
+                <h3>Department Management</h3>
+                <p>Monitor and manage different hospital departments</p>
+                <a href="department.html" class="feature-link">View Departments</a>
+            </div>
+            <div class="feature-card">
+                <h3>Ward Management</h3>
+                <p>Track bed availability and patient assignments</p>
+                <a href="ward.html" class="feature-link">View Ward Status</a>
+            </div>
+            <div class="feature-card">
+                <h3>Pharmacy</h3>
+                <p>Manage medicine inventory and prescriptions</p>
+                <a href="pharmacy.html" class="feature-link">Access Pharmacy</a>
+            </div>
+            <div class="feature-card">
+                <h3>Staff Dashboard</h3>
+                <p>Staff directory and schedule management</p>
+                <a href="staff.html" class="feature-link">View Staff Dashboard</a>
+            </div>
+        </div>
+
+        <div class="stats-section">
+            <h3>System Statistics</h3>
+            <div class="stats-grid">
+                <div class="stat-box">
+                    <h4>Total Patients</h4>
+                    <span id="totalPatients">0</span>
+                </div>
+                <div class="stat-box">
+                    <h4>Active Departments</h4>
+                    <span id="totalDepartments">0</span>
+                </div>
+                <div class="stat-box">
+                    <h4>Available Beds</h4>
+                    <span id="availableBeds">0</span>
+                </div>
+                <div class="stat-box">
+                    <h4>Staff Members</h4>
+                    <span id="totalStaff">0</span>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Smart Hospital Management System</p>
+        </div>
+    </footer>
+
+    <!-- Socket.io Client Library -->
+    <script src="/socket.io/socket.io.js"></script>
+    <!-- Menu Script -->
+    <script src="js/menu.js"></script>
+    <!-- Emergency Code System -->
+    <script src="js/emergency.js"></script>
+    <!-- Home Page Script -->
+    <script src="js/index.js"></script>
+</body>
+</html>

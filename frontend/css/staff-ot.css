@@ -1,0 +1,379 @@
+@import 'operation-theatre.css';
+
+/* Now Serving Container Styles */
+.now-serving-container {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.now-serving-container .waiting-message {
+    color: var(--text-light);
+    font-style: italic;
+}
+
+.now-serving-container .patient-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.now-serving-container .patient-name {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--text-color);
+    margin-bottom: 0.5rem;
+}
+
+.now-serving-container .patient-id {
+    color: var(--text-light);
+    margin-bottom: 1rem;
+}
+
+.now-serving-container .surgery-stage {
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding: 0.5rem 1.5rem;
+    border-radius: 8px;
+    margin: 1rem 0;
+}
+
+.now-serving-container .stage-pre-operative {
+    background-color: var(--info-color);
+    color: white;
+}
+
+.now-serving-container .stage-anaesthetic {
+    background-color: var(--warning-color);
+    color: white;
+}
+
+.now-serving-container .stage-surgical {
+    background-color: var(--error-color);
+    color: white;
+}
+
+.now-serving-container .stage-recovery {
+    background-color: var(--success-color);
+    color: white;
+}
+
+.now-serving-container .surgery-info {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 1rem 0;
+}
+
+.now-serving-container .surgery-type {
+    font-weight: bold;
+}
+
+.now-serving-container .ot-number {
+    background: var(--primary-color);
+    color: white;
+    padding: 0.25rem 0.75rem;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+/* Modal styles */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+}
+
+.modal-content {
+    position: relative;
+    background-color: white;
+    margin: 5% auto;
+    padding: 2rem;
+    width: 80%;
+    max-width: 800px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.close {
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--text-light);
+}
+
+.close:hover {
+    color: var(--text-color);
+}
+
+/* Patient info display */
+.patient-info-display {
+    margin-bottom: 2rem;
+    padding: 1rem;
+    background-color: var(--background-color);
+    border-radius: 8px;
+}
+
+.patient-info-display h3 {
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+/* Stage controls */
+.stage-controls {
+    margin-bottom: 2rem;
+}
+
+.stage-buttons {
+    display: flex;
+    gap: 1rem;
+    margin: 1rem 0;
+    flex-wrap: wrap;
+}
+
+.stage-btn {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+.stage-btn.active {
+    background-color: var(--primary-color);
+    color: rgb(207, 0, 0);
+}
+
+.stage-btn[data-stage="Pre-operative"].active {
+    background-color: var(--info-color);
+}
+
+.stage-btn[data-stage="Anaesthetic"].active {
+    background-color: var(--warning-color);
+}
+
+.stage-btn[data-stage="Surgical"].active {
+    background-color: var(--error-color);
+}
+
+.stage-btn[data-stage="Recovery"].active {
+    background-color: var(--success-color);
+}
+
+/* Stage notes */
+.stage-notes {
+    margin: 1rem 0;
+}
+
+.stage-notes textarea {
+    width: 100%;
+    min-height: 100px;
+    padding: 0.75rem;
+    border: 1px solid var(--background-color);
+    border-radius: 6px;
+    resize: vertical;
+    margin-top: 0.5rem;
+}
+
+/* Stage actions */
+.stage-actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.stage-actions button {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer !important;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    z-index: 10; /* Ensure buttons are clickable */
+    position: relative; /* Needed for z-index to work */
+    pointer-events: auto !important;
+}
+
+#save-stage {
+    background-color: var(--primary-color);
+    color: rgb(159, 0, 0);
+}
+
+#complete-surgery {
+    background-color: var(--success-color);
+    color: white;
+}
+
+/* Transfer controls */
+.transfer-controls {
+    margin-top: 20px;
+    padding: 15px;
+    border-top: 1px solid #ddd;
+    display: none; /* Hidden by default */
+    position: relative; /* Ensure proper stacking */
+    z-index: 5; /* Lower than buttons but still above other elements */
+}
+
+.transfer-controls h3 {
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.transfer-controls select {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.transfer-controls button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.transfer-controls button:hover {
+    background-color: #45a049;
+}
+
+.transfer-controls select {
+    width: 100%;
+    padding: 0.75rem;
+    margin: 0.5rem 0;
+    border: 1px solid var(--background-color);
+    border-radius: 6px;
+}
+
+#transfer-patient {
+    width: 100%;
+    padding: 0.75rem;
+    background-color: var(--warning-color);
+    color: rgb(168, 0, 0);
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+/* Surgery item modifications */
+.surgery-details {
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.surgery-details:hover {
+    background-color: rgba(var(--primary-color-rgb), 0.1);
+}
+
+/* Stage indicators in surgery details */
+.stage-indicator {
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    margin-left: 0.5rem;
+}
+
+/* Pre-operative section styles */
+.ot-preop {
+    margin: 1rem 0;
+    padding: 1rem;
+    background-color: var(--background-light);
+    border-radius: 8px;
+    border-left: 4px solid #f0ad4e; /* Orange color for pre-operative */
+}
+
+.stage-pre-operative {
+    background-color: #f0ad4e;
+    color: white;
+}
+
+/* Existing styles */
+.stage-anaesthetic {
+    background-color: var(--warning-color);
+    color: rgb(255, 0, 0);
+}
+
+.stage-surgical {
+    background-color: var(--error-color);
+    color: rgb(234, 0, 0);
+}
+
+.stage-recovery {
+    background-color: var(--success-color);
+    color: rgb(255, 0, 0);
+}
+
+/* Special styling for transfer-to-ward button */
+#transfer-to-ward, .transfer-btn {
+    background-color: var(--info-color) !important;
+    color: white !important;
+    cursor: pointer !important;
+    z-index: 100 !important; /* Very high z-index to ensure clickability */
+    position: relative !important;
+    pointer-events: auto !important; /* Force pointer events */
+    opacity: 1 !important; /* Ensure full opacity */
+    display: inline-block !important; /* Ensure it's displayed */
+    visibility: visible !important; /* Ensure it's visible */
+}
+
+#transfer-to-ward:hover, .transfer-btn:hover {
+    background-color: #0056b3 !important; /* Darker blue on hover */
+}
+
+/* Surgery Stages Display */
+.surgery-stages {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: center;
+    margin: 1rem 0;
+}
+
+.surgery-stages .surgery-stage {
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    font-weight: bold;
+    font-size: 1rem;
+    text-align: center;
+}
+
+/* Highlight the current stage */
+.now-serving-container .surgery-stage.current {
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.5), 0 0 0 6px currentColor;
+    position: relative;
+}
+
+.now-serving-container .surgery-stage.current::after {
+    content: '✓';
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background: white;
+    color: var(--success-color);
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}

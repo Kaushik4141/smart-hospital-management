@@ -1,0 +1,440 @@
+.ot-header {
+    padding: 2rem 0;
+    text-align: center;
+}
+
+.ot-header h1 {
+    color: var(--primary-color);
+    margin-bottom: 2rem;
+}
+
+.ot-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    margin: 2rem auto;
+    max-width: 800px;
+}
+
+.stat-box {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.stat-box h3 {
+    color: var(--text-color);
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.stat-box span {
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+/* Stats Section */
+.stats-section {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin: 2rem auto;
+    max-width: 1000px;
+    padding: 0 1rem;
+}
+
+.stat-card {
+    background: white;
+    padding: 1.5rem 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    text-align: center;
+    min-width: 180px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.stat-card h3 {
+    color: var(--light-text);
+    font-size: 1rem;
+    margin-bottom: 0.75rem;
+    font-weight: 500;
+}
+
+.stat-card span {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: var(--primary-color);
+    display: block;
+}
+
+/* OT Grid Layout */
+.ot-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    padding: 1.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.ot-section {
+    background: white;
+    border-radius: 16px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease;
+}
+
+.ot-section:hover {
+    transform: translateY(-5px);
+}
+
+.ot-section h2 {
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 2px solid var(--background-color);
+    font-size: 1.75rem;
+    text-align: center;
+}
+
+/* Current Surgery Styles */
+.current-surgery {
+    background: var(--background-color);
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin-bottom: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.current-surgery:hover {
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+}
+
+.surgery-details {
+    background: white;
+    padding: 1.25rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease;
+}
+
+.surgery-details:hover {
+    transform: scale(1.02);
+}
+
+.patient-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.patient-name {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: var(--text-color);
+}
+
+.patient-id {
+    color: var(--light-text);
+    font-size: 1rem;
+    background: var(--background-color);
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+}
+
+.surgery-stage {
+    display: inline-block;
+    padding: 0.35rem 0.85rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    background:red;
+    color: white;
+    margin-left: auto;
+}
+
+.surgery-info {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    align-items: center;
+    margin: 1rem 0;
+}
+
+.surgery-type {
+    color: var(--text-color);
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+/* Priority and Status Badges */
+.priority, .status {
+    padding: 0.35rem 0.85rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: capitalize;
+}
+
+.priority.emergency {
+    background: var(--danger);
+    color: white;
+}
+
+.priority.urgent {
+    background: var(--warning);
+    color: white;
+}
+
+.priority.normal {
+    background: var(--success);
+    color: white;
+}
+
+.status {
+    background: var(--background-color);
+    color: var(--text-color);
+}
+
+.status.waiting {
+    background: #3b82f6;
+    color: white;
+}
+
+.status.in-progress {
+    background: var(--primary-dark);
+    color: white;
+}
+
+.status.completed {
+    background: var(--success);
+    color: white;
+}
+
+.status.transfer-pending, .status.pending-transfer {
+    background: var(--warning);
+    color: white;
+}
+
+.surgery-time {
+    color: var(--primary-color);
+    font-size: 1rem;
+    margin-top: 0.75rem;
+    text-align: right;
+    font-weight: 500;
+}
+
+/* Queue List Styles */
+.queue-list {
+    margin-top: 2rem;
+    max-height: 400px;
+    overflow-y: auto;
+    padding-right: 0.5rem;
+    scrollbar-width: thin;
+}
+
+.queue-list::-webkit-scrollbar {
+    width: 6px;
+}
+
+.queue-list::-webkit-scrollbar-track {
+    background: var(--background-color);
+    border-radius: 10px;
+}
+
+.queue-list::-webkit-scrollbar-thumb {
+    background: var(--primary-color);
+    border-radius: 10px;
+}
+
+.queue-item {
+    padding: 1.25rem;
+    border-bottom: 1px solid var(--background-color);
+    transition: background-color 0.2s ease;
+}
+
+.queue-item:hover {
+    background-color: rgba(37, 99, 235, 0.05);
+}
+
+.queue-item:last-child {
+    border-bottom: none;
+}
+
+.no-surgery {
+    color: var(--light-text);
+    text-align: center;
+    font-style: italic;
+    padding: 2rem 0;
+}
+
+/* Now Serving Section Styles */
+.now-serving-section {
+    margin: 2rem auto;
+    max-width: 1000px;
+    text-align: center;
+}
+
+.now-serving-section h2 {
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+    font-size: 2rem;
+    position: relative;
+    display: inline-block;
+}
+
+.now-serving-section h2:after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: var(--primary-color);
+    border-radius: 2px;
+}
+
+#now-serving {
+    background: white;
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    margin: 0 1rem;
+}
+
+#now-serving .waiting-message {
+    color: var(--light-text);
+    font-style: italic;
+    font-size: 1.2rem;
+    padding: 2rem 0;
+}
+
+#now-serving .patient-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1.5rem;
+}
+
+#now-serving .patient-name {
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--text-color);
+    margin-bottom: 0.75rem;
+}
+
+#now-serving .patient-id {
+    color: var(--light-text);
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+}
+
+#now-serving .surgery-stage {
+    font-size: 1.3rem;
+    font-weight: bold;
+    padding: 0.75rem 2rem;
+    border-radius: 30px;
+    margin: 1.5rem 0;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+#now-serving .stage-pre-operative {
+    background-color: #3b82f6;
+    color: white;
+}
+
+#now-serving .stage-anaesthetic {
+    background-color: var(--warning);
+    color: white;
+}
+
+#now-serving .stage-surgical {
+    background-color: var(--danger);
+    color: white;
+}
+
+#now-serving .stage-recovery {
+    background-color: var(--success);
+    color: white;
+}
+
+#now-serving .surgery-info {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 1.5rem 0;
+}
+
+#now-serving .surgery-type {
+    font-weight: 600;
+    font-size: 1.2rem;
+}
+
+#now-serving .ot-number {
+    background: var(--primary-color);
+    color: white;
+    padding: 0.5rem 1.25rem;
+    border-radius: 25px;
+    font-weight: bold;
+    font-size: 1.1rem;
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+}
+
+/* Error Message */
+.error-message {
+    color: var(--danger);
+    background-color: rgba(239, 68, 68, 0.1);
+    padding: 1.25rem;
+    margin: 1.5rem auto;
+    max-width: 1000px;
+    border-radius: 12px;
+    text-align: center;
+    display: none;
+    font-weight: 500;
+    border-left: 4px solid var(--danger);
+}
+
+.error-message:not(:empty) {
+    display: block;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .ot-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .stats-section {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .stat-card {
+        width: 100%;
+        max-width: 300px;
+    }
+    
+    #now-serving .patient-name {
+        font-size: 1.5rem;
+    }
+    
+    #now-serving .surgery-stage {
+        font-size: 1.1rem;
+        padding: 0.5rem 1.5rem;
+    }
+}

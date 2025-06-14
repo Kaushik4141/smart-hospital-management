@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Staff Queue Management - Smart Hospital</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/staff-counter.css">
+    <link rel="stylesheet" href="css/menu.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/emergency.css">
+</head>
+<body>
+    <!-- Menu Button -->
+    <button id="menuButton" class="menu-button" aria-label="Open menu" aria-expanded="false">
+        <span class="icon">☰</span>
+    </button>
+
+    <!-- Menu Overlay -->
+    <div id="menuOverlay" class="menu-overlay"></div>
+
+    <!-- Menu Dropdown -->
+    <div id="menuDropdown" class="menu-dropdown">
+        <div class="menu-header">
+            <h2>Smart Hospital</h2>
+        </div>
+        <ul class="menu-items">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="patient.html">Patient Registration</a></li>
+            <li><a href="counter.html">Counter Display</a></li>
+            <li><a href="staff-counter.html">Staff Counter</a></li>
+            <li><a href="department.html">Department Display</a></li>
+            <li><a href="ward.html">Ward Display</a></li>
+            <li><a href="pharmacy.html">Pharmacy</a></li>
+            <li><a href="staff.html">Staff Dashboard</a></li>
+        </ul>
+    </div>
+
+    <main class="container">
+        <div class="queue-display">
+            <div class="queue-header">
+                <div class="header-left">
+                    <h2 id="departmentTitle">Department Queue</h2>
+                    <span class="queue-stats">
+                        Waiting: <span id="waitingCount">0</span> | 
+                        In Progress: <span id="inProgressCount">0</span>
+                    </span>
+                </div>
+                <a href="staff-counter.html" class="back-button">← Back to Departments</a>
+            </div>
+
+            <div class="queue-content">
+                <div class="current-patient">
+                    <div class="current-header">
+                        <h3>Current Patient</h3>
+                        <div class="action-buttons" id="currentPatientActions">
+                            <!-- Action buttons will be shown when a patient is selected -->
+                        </div>
+                    </div>
+                    <div class="patient-card" id="currentPatient">
+                        <p class="no-patient">No patient selected</p>
+                    </div>
+                </div>
+
+                <div class="queue-section">
+                    <div class="section-header">
+                        <h3>Patient Queue</h3>
+                        <div class="queue-filters">
+                            <select id="priorityFilter">
+                                <option value="">All Priorities</option>
+                                <option value="Emergency">Emergency</option>
+                                <option value="Urgent">Urgent</option>
+                                <option value="Normal">Normal</option>
+                            </select>
+                            <input type="text" id="searchPatient" placeholder="Search patients...">
+                        </div>
+                    </div>
+                    <div class="queue-list" id="queueList">
+                        <!-- Queue items will be populated by JavaScript -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Patient Management Modal -->
+    <div class="modal" id="patientModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Patient Management</h2>
+                <button class="close-btn" onclick="closeModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="patientManagementForm">
+                    <div class="form-group">
+                        <label for="patientStatus">Status</label>
+                        <select id="patientStatus" required>
+                            <option value="Waiting">Waiting</option>
+                            <option value="In Progress">In Progress</option>
+                            <option value="Completed">Completed</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="transferType">Transfer To</label>
+                        <select id="transferType">
+                            <option value="">No Transfer</option>
+                            <option value="department">Another Department</option>
+                            <option value="ward">Ward</option>
+                            <option value="ot">Operation Theatre</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group" id="transferDepartmentGroup" style="display: none;">
+                        <label for="transferDepartment">Select Department</label>
+                        <select id="transferDepartment">
+                            <!-- Departments will be populated by JavaScript -->
+                        </select>
+                    </div>
+
+                    <div class="form-group" id="transferWardGroup" style="display: none;">
+                        <label for="transferWard">Select Ward</label>
+                        <select id="transferWard">
+                            <option value="general">General Ward</option>
+                            <option value="icu">ICU</option>
+                            <option value="emergency">Emergency Ward</option>
+                            <option value="pediatric">Pediatric Ward</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group" id="transferOTGroup" style="display: none;">
+                        <label for="transferOT">Select OT</label>
+                        <select id="transferOT">
+                            <option value="OT1">OT 1</option>
+                            <option value="OT2">OT 2</option>
+                            <option value="OT3">OT 3</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="description">Description/Notes</label>
+                        <textarea id="description" rows="4" placeholder="Enter patient notes, transfer reason, or special instructions..."></textarea>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn-primary">Update Patient</button>
+                        <button type="button" class="btn-secondary" onclick="closeModal()">Cancel</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Patient History Modal -->
+    <div class="modal" id="historyModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Patient History</h2>
+                <button class="close-btn" onclick="closeHistoryModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="patient-timeline" id="patientTimeline">
+                    <!-- Timeline will be populated by JavaScript -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Smart Hospital Management System</p>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.7.4/socket.io.min.js"></script>
+    <script src="js/menu.js"></script>
+    <script src="js/staff-queue.js"></script>
+    <!-- Emergency Code System -->
+    <script src="js/emergency.js"></script>
+</body>
+</html>

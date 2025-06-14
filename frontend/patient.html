@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Registration - Smart Hospital</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/patient.css">
+    <link rel="stylesheet" href="css/menu.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/emergency.css">
+</head>
+<body>
+    <!-- Menu Button -->
+    <button id="menuButton" class="menu-button" aria-label="Open menu" aria-expanded="false">
+        <span class="icon">☰</span>
+    </button>
+
+    <!-- Menu Overlay -->
+    <div id="menuOverlay" class="menu-overlay"></div>
+
+    <!-- Menu Dropdown -->
+    <div id="menuDropdown" class="menu-dropdown">
+        <div class="menu-header">
+            <h2>Smart Hospital</h2>
+        </div>
+        <ul class="menu-items">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="patient.html" class="active">Patient Registration</a></li>
+            <li><a href="counter.html">Counter Display</a></li>
+            <li><a href="staff-counter.html">Staff Counter</a></li>
+            <li><a href="department.html">Department Display</a></li>
+            <li><a href="ward.html">Ward Display</a></li>
+            <li><a href="operation-theatre.html">Operation Theatre</a></li>
+            <li><a href="staff-ot.html">Staff OT</a></li>
+            <li><a href="pharmacy.html">Pharmacy</a></li>
+            <li><a href="staff.html">Staff Dashboard</a></li>
+        </ul>
+    </div>
+
+    <main class="container">
+        <div class="patient-header">
+            <h2>Patient Registration</h2>
+            <div class="patient-stats">
+                <div class="stat-box">
+                    <h3>Total Patients</h3>
+                    <span id="totalPatients">0</span>
+                </div>
+                <div class="stat-box">
+                    <h3>Waiting</h3>
+                    <span id="waitingPatients">0</span>
+                </div>
+                <div class="stat-box">
+                    <h3>In Progress</h3>
+                    <span id="inProgressPatients">0</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="patient-content">
+            <div class="registration-section">
+                <div class="section-header">
+                    <h3>New Patient Registration</h3>
+                </div>
+                <form id="patientRegistrationForm" class="registration-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="patientName">Full Name</label>
+                            <input type="text" id="patientName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="patientAge">Age</label>
+                            <input type="number" id="patientAge" min="0" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="patientGender">Gender</label>
+                            <select id="patientGender" required>
+                                <option value="">Select Gender</option>
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="patientDepartment">Department</label>
+                            <select id="patientDepartment" required>
+                                <!-- Departments will be populated by JavaScript -->
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="patientContact">Contact Number</label>
+                            <input type="tel" id="patientContact" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="patientPriority">Priority</label>
+                            <select id="patientPriority" required>
+                                <option value="Normal">Normal</option>
+                                <option value="Urgent">Urgent</option>
+                                <option value="Emergency">Emergency</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="action-btn btn-primary">Register Patient</button>
+                        <button type="reset" class="action-btn btn-secondary">Clear Form</button>
+                    </div>
+                </form>
+            </div>
+
+            <div class="patient-list-section">
+                <div class="section-header">
+                    <h3>Recent Patients</h3>
+                    <div class="search-bar">
+                        <input type="text" id="patientSearch" placeholder="Search patients...">
+                        <select id="statusFilter">
+                            <option value="">All Status</option>
+                            <option value="Waiting">Waiting</option>
+                            <option value="In Progress">In Progress</option>
+                            <option value="Completed">Completed</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="patient-list" id="patientList">
+                    <!-- Patient cards will be populated by JavaScript -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Patient Details Modal -->
+        <div class="patient-modal" id="patientDetailsModal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 id="modalPatientName">Patient Details</h2>
+                    <button class="close-btn" onclick="closeModal()">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div id="patientDetails">
+                        <!-- Patient details will be populated by JavaScript -->
+                    </div>
+                    <div class="status-actions">
+                        <h3>Update Status</h3>
+                        <div class="status-buttons">
+                            <button class="action-btn btn-waiting" onclick="updateStatus('Waiting')">Waiting</button>
+                            <button class="action-btn btn-progress" onclick="updateStatus('In Progress')">In Progress</button>
+                            <button class="action-btn btn-completed" onclick="updateStatus('Completed')">Completed</button>
+                        </div>
+                    </div>
+                    
+                    <div class="transfer-section">
+                        <h3>Transfer Patient</h3>
+                        <div class="form-group">
+                            <label for="transferType">Transfer To</label>
+                            <select id="transferType">
+                                <option value="">No Transfer</option>
+                                <option value="department">Another Department</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group" id="transferDepartmentGroup" style="display: none;">
+                            <label for="transferDepartment">Select Department</label>
+                            <select id="transferDepartment">
+                                <!-- Departments will be populated by JavaScript -->
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="transferDescription">Description/Notes</label>
+                            <textarea id="transferDescription" rows="3" placeholder="Enter transfer reason or notes..."></textarea>
+                        </div>
+                        
+                        <button class="action-btn btn-primary" onclick="transferPatient()">Transfer Patient</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Smart Hospital Management System</p>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.7.4/socket.io.min.js"></script>
+    <script src="js/menu.js"></script>
+    <script src="js/patient.js"></script>
+    <!-- Emergency Code System -->
+    <script src="js/emergency.js"></script>
+</body>
+</html>

@@ -1,0 +1,253 @@
+/* Ward Header */
+.ward-header {
+    margin-bottom: 2rem;
+}
+
+.ward-header h2 {
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+}
+
+.ward-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+}
+
+.stat-box {
+    background-color: var(--white);
+    padding: 1.5rem;
+    border-radius: 1rem;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.stat-box h3 {
+    color: var(--light-text);
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.stat-box span {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+/* Ward Grid */
+.ward-grid {
+    display: grid;
+    gap: 2rem;
+}
+
+.ward-section {
+    background-color: var(--white);
+    border-radius: 1rem;
+    padding: 1.5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.ward-section h3 {
+    color: var(--text-color);
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--background-color);
+}
+
+.bed-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+}
+
+.bed-card {
+    background-color: var(--background-color);
+    border-radius: 0.5rem;
+    padding: 1rem;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.bed-card:hover {
+    transform: translateY(-2px);
+}
+
+.bed-card.occupied {
+    background-color: var(--warning-light);
+    border: 1px solid var(--warning);
+}
+
+.bed-card.available {
+    background-color: var(--success-light);
+    border: 1px solid var(--success);
+}
+
+.bed-card h4 {
+    color: var(--text-color);
+    margin-bottom: 0.5rem;
+}
+
+.bed-info {
+    font-size: 0.875rem;
+    color: var(--light-text);
+}
+
+.bed-status {
+    display: inline-block;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+    font-size: 0.75rem;
+    font-weight: 500;
+    margin-top: 0.5rem;
+}
+
+.status-occupied {
+    background-color: var(--warning);
+    color: var(--white);
+}
+
+.status-available {
+    background-color: var(--success);
+    color: var(--white);
+}
+
+/* Modal */
+.ward-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+}
+
+.ward-modal.active {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    background-color: var(--white);
+    border-radius: 1rem;
+    width: 90%;
+    max-width: 600px;
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+.modal-header {
+    padding: 1.5rem;
+    border-bottom: 1px solid var(--background-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-header h2 {
+    color: var(--primary-color);
+    font-size: 1.5rem;
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: var(--light-text);
+    cursor: pointer;
+    padding: 0.5rem;
+}
+
+.close-btn:hover {
+    color: var(--text-color);
+}
+
+.modal-body {
+    padding: 1.5rem;
+}
+
+.patient-details {
+    margin-bottom: 1.5rem;
+}
+
+.patient-details h3 {
+    color: var(--text-color);
+    margin-bottom: 1rem;
+}
+
+.patient-info-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+}
+
+.info-item {
+    padding: 0.5rem;
+}
+
+.info-item label {
+    display: block;
+    color: var(--light-text);
+    font-size: 0.875rem;
+    margin-bottom: 0.25rem;
+}
+
+.info-item span {
+    color: var(--text-color);
+    font-weight: 500;
+}
+
+.bed-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-end;
+}
+
+.action-btn {
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: 500;
+    cursor: pointer;
+    border: none;
+    transition: background-color 0.2s ease;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: var(--white);
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-dark);
+}
+
+.btn-secondary {
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+.btn-secondary:hover {
+    background-color: var(--light-text);
+    color: var(--white);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .ward-stats {
+        grid-template-columns: 1fr;
+    }
+
+    .patient-info-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .bed-actions {
+        flex-direction: column;
+    }
+
+    .action-btn {
+        width: 100%;
+    }
+} 

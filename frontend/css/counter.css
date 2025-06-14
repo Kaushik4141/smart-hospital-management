@@ -1,0 +1,398 @@
+/* Counter Display Styles */
+.counter-display {
+    padding: 2rem 0;
+}
+
+.current-token {
+    background-color: rgb(0, 0, 255);
+    color:black;
+    padding: 3rem;
+    border-radius: 1rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.current-token h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.token-number {
+    font-size: 5rem;
+    font-weight: 700;
+    margin: 1.5rem 0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.patient-info {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 1rem;
+    border-radius: 0.5rem;
+    margin-top: 1rem;
+}
+
+.patient-info h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.patient-info p {
+    font-size: 1.1rem;
+    opacity: 0.9;
+}
+
+.recent-tokens {
+    background-color: var(--white);
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.recent-tokens h2 {
+    color: var(--text-color);
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+}
+
+.token-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1rem;
+}
+
+.token-card {
+    background-color: var(--background-color);
+    padding: 1rem;
+    border-radius: 0.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: transform 0.3s ease;
+}
+
+.token-card:hover {
+    transform: translateY(-2px);
+}
+
+.token-card-info {
+    flex-grow: 1;
+}
+
+.token-card-info h3 {
+    color: var(--text-color);
+    font-size: 1.1rem;
+    margin-bottom: 0.25rem;
+}
+
+.token-card-info p {
+    color: var(--light-text);
+    font-size: 0.9rem;
+}
+
+.token-card-number {
+    background-color: var(--primary-color);
+    color: var(--white);
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+    font-weight: 600;
+}
+
+/* Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.token-card {
+    animation: fadeIn 0.3s ease-out;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .current-token {
+        padding: 2rem;
+    }
+
+    .token-number {
+        font-size: 3.5rem;
+    }
+
+    .token-list {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Counter Header */
+.counter-header {
+    text-align: center;
+    padding: 2rem 0;
+}
+
+.counter-header h2 {
+    color: var(--primary-color);
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.counter-header p {
+    color: var(--light-text);
+    font-size: 1.1rem;
+}
+
+/* Department Grid */
+.department-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.department-card {
+    background-color: var(--white);
+    border-radius: 1rem;
+    padding: 2rem;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.department-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.department-card h3 {
+    color: var(--text-color);
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+}
+
+.department-info {
+    margin-bottom: 1.5rem;
+}
+
+.department-info p {
+    color: var(--light-text);
+    margin-bottom: 0.5rem;
+}
+
+.queue-status {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    border-radius: 2rem;
+    font-weight: 500;
+    font-size: 0.875rem;
+}
+
+.status-active {
+    background-color: var(--success);
+    color: var(--white);
+}
+
+.status-busy {
+    background-color: var(--warning);
+    color: var(--white);
+}
+
+.status-full {
+    background-color: var(--danger);
+    color: var(--white);
+}
+
+/* Department Stats */
+.department-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin: 3rem 0;
+}
+
+.stat-box {
+    background-color: var(--white);
+    padding: 1.5rem;
+    border-radius: 1rem;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.stat-box h3 {
+    color: var(--light-text);
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.stat-box span {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+/* Queue Display Page */
+.queue-display {
+    padding: 2rem;
+    background-color: var(--white);
+    border-radius: 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-top: 2rem;
+}
+
+.queue-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.queue-header h2 {
+    color: var(--primary-color);
+}
+
+.queue-header .back-button {
+    padding: 0.5rem 1rem;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.queue-header .back-button:hover {
+    background-color: var(--border-color);
+}
+
+.current-token {
+    text-align: center;
+    padding: 2rem;
+    background-color: var(--background-color);
+    border-radius: 1rem;
+    margin-bottom: 2rem;
+}
+
+.token-number {
+    font-size: 4rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin: 1rem 0;
+}
+
+.patient-info h3 {
+    color: var(--text-color);
+    margin-bottom: 0.5rem;
+}
+
+.patient-info p {
+    color: var(--light-text);
+}
+
+.queue-list {
+    display: grid;
+    gap: 1rem;
+}
+
+.queue-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: var(--background-color);
+    border-radius: 0.5rem;
+    transition: transform 0.2s ease;
+}
+
+.queue-item:hover {
+    transform: translateX(4px);
+}
+
+.queue-item-left {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.token {
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+.patient-details h4 {
+    color: var(--text-color);
+    margin-bottom: 0.25rem;
+}
+
+.patient-details p {
+    color: var(--light-text);
+    font-size: 0.875rem;
+}
+
+.priority-tag {
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+    font-size: 0.75rem;
+    font-weight: 500;
+}
+
+.priority-normal {
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+.priority-urgent {
+    background-color: var(--warning);
+    color: var(--white);
+}
+
+.priority-emergency {
+    background-color: var(--danger);
+    color: var(--white);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .department-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .department-grid,
+    .department-stats {
+        grid-template-columns: 1fr;
+    }
+
+    .queue-header {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: flex-start;
+    }
+
+    .token-number {
+        font-size: 3rem;
+    }
+
+    .queue-item {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+    }
+
+    .queue-item-left {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+} 

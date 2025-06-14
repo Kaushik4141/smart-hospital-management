@@ -1,0 +1,335 @@
+/* Patient Header */
+.patient-header {
+    margin-bottom: 2rem;
+}
+
+.patient-header h2 {
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+}
+
+.patient-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+}
+
+.stat-box {
+    background-color: var(--white);
+    padding: 1.5rem;
+    border-radius: 1rem;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.stat-box h3 {
+    color: var(--light-text);
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.stat-box span {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+/* Patient Content */
+.patient-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+
+/* Registration Section */
+.registration-section {
+    background-color: var(--white);
+    border-radius: 1rem;
+    padding: 1.5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.section-header {
+    margin-bottom: 1.5rem;
+}
+
+.section-header h3 {
+    color: var(--text-color);
+}
+
+.registration-form {
+    display: grid;
+    gap: 1.5rem;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+}
+
+.form-group {
+    margin-bottom: 0.5rem;
+}
+
+.form-group label {
+    display: block;
+    color: var(--text-color);
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid var(--background-color);
+    border-radius: 0.5rem;
+    font-size: 1rem;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+
+.form-actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+/* Patient List Section */
+.patient-list-section {
+    background-color: var(--white);
+    border-radius: 1rem;
+    padding: 1.5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.search-bar {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.search-bar input,
+.search-bar select {
+    padding: 0.75rem;
+    border: 1px solid var(--background-color);
+    border-radius: 0.5rem;
+    font-size: 1rem;
+}
+
+.search-bar input:focus,
+.search-bar select:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+
+.patient-list {
+    display: grid;
+    gap: 1rem;
+    max-height: 600px;
+    overflow-y: auto;
+}
+
+.patient-card {
+    background-color: var(--background-color);
+    border-radius: 0.5rem;
+    padding: 1rem;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.patient-card:hover {
+    transform: translateY(-2px);
+}
+
+.patient-card h4 {
+    color: var(--text-color);
+    margin-bottom: 0.5rem;
+}
+
+.patient-info {
+    font-size: 0.875rem;
+    color: var(--light-text);
+}
+
+.patient-status {
+    display: inline-block;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+    font-size: 0.75rem;
+    font-weight: 500;
+    margin-top: 0.5rem;
+}
+
+.status-waiting {
+    background-color: var(--warning);
+    color: var(--white);
+}
+
+.status-progress {
+    background-color: var(--primary-color);
+    color: var(--white);
+}
+
+.status-completed {
+    background-color: var(--success);
+    color: var(--white);
+}
+
+/* Modal */
+.patient-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+}
+
+.patient-modal.active {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    background-color: var(--white);
+    border-radius: 1rem;
+    width: 90%;
+    max-width: 600px;
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+.modal-header {
+    padding: 1.5rem;
+    border-bottom: 1px solid var(--background-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-header h2 {
+    color: var(--primary-color);
+    font-size: 1.5rem;
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: var(--light-text);
+    cursor: pointer;
+    padding: 0.5rem;
+}
+
+.close-btn:hover {
+    color: var(--text-color);
+}
+
+.modal-body {
+    padding: 1.5rem;
+}
+
+/* Status Actions */
+.status-actions {
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--background-color);
+}
+
+.status-actions h3 {
+    color: var(--text-color);
+    margin-bottom: 1rem;
+}
+
+.status-buttons {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+}
+
+.btn-waiting {
+    background-color: var(--warning);
+    color: var(--white);
+}
+
+.btn-progress {
+    background-color: var(--primary-color);
+    color: var(--white);
+}
+
+.btn-completed {
+    background-color: var(--success);
+    color: var(--white);
+}
+
+/* Buttons */
+.action-btn {
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: 500;
+    cursor: pointer;
+    border: none;
+    transition: background-color 0.2s ease;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: var(--white);
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-dark);
+}
+
+.btn-secondary {
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+.btn-secondary:hover {
+    background-color: var(--light-text);
+    color: var(--white);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .patient-content {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .patient-stats {
+        grid-template-columns: 1fr;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+
+    .search-bar {
+        grid-template-columns: 1fr;
+    }
+
+    .form-actions {
+        flex-direction: column;
+    }
+
+    .action-btn {
+        width: 100%;
+    }
+
+    .status-buttons {
+        grid-template-columns: 1fr;
+    }
+} 

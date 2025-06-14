@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Department Display - Smart Hospital</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/department.css">
+    <link rel="stylesheet" href="css/menu.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/emergency.css">
+</head>
+<body>
+    <!-- Menu Button -->
+    <button id="menuButton" class="menu-button" aria-label="Open menu" aria-expanded="false">
+        <span class="icon">☰</span>
+    </button>
+
+    <!-- Menu Overlay -->
+    <div id="menuOverlay" class="menu-overlay"></div>
+
+    <!-- Menu Dropdown -->
+    <div id="menuDropdown" class="menu-dropdown">
+        <div class="menu-header">
+            <h2>Smart Hospital</h2>
+        </div>
+        <ul class="menu-items">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="patient.html">Patient Registration</a></li>
+            <li><a href="counter.html">Counter Display</a></li>
+            <li><a href="staff-counter.html">Staff Counter</a></li>
+            <li><a href="department.html" class="active">Department Display</a></li>
+            <li><a href="ward.html">Ward Display</a></li>
+            <li><a href="operation-theatre.html">Operation Theatre</a></li>
+            <li><a href="staff-ot.html">Staff OT</a></li>
+            <li><a href="pharmacy.html">Pharmacy</a></li>
+            <li><a href="staff.html">Staff Dashboard</a></li>
+        </ul>
+    </div>
+
+    <main class="container">
+        <div class="department-grid">
+            <!-- Department cards will be populated by JavaScript -->
+        </div>
+
+        <div class="department-modal" id="departmentModal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 id="modalDepartmentName">Department Name</h2>
+                    <button class="close-btn" onclick="closeModal()">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="queue-info">
+                        <div class="stat-box">
+                            <h3>Waiting</h3>
+                            <span id="waitingCount">0</span>
+                        </div>
+                        <div class="stat-box">
+                            <h3>In Progress</h3>
+                            <span id="inProgressCount">0</span>
+                        </div>
+                        <div class="stat-box">
+                            <h3>Completed</h3>
+                            <span id="completedCount">0</span>
+                        </div>
+                    </div>
+                    <div class="queue-list">
+                        <h3>Current Queue</h3>
+                        <div class="patient-list" id="patientList">
+                            <!-- Patient list will be populated by JavaScript -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Smart Hospital Management System</p>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.7.4/socket.io.min.js"></script>
+    <script src="js/menu.js"></script>
+    <script src="js/department.js"></script>
+    <!-- Emergency Code System -->
+    <script src="js/emergency.js"></script>
+</body>
+</html>

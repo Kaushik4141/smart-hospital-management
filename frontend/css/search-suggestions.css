@@ -1,0 +1,63 @@
+/* Search Suggestions Styles */
+
+/* Common styles for search containers */
+.medicine-search-container,
+.patient-search-container {
+    position: relative;
+    width: 100%;
+}
+
+/* Common styles for suggestion dropdowns */
+.medicine-suggestions,
+.patient-suggestions {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    max-height: 200px;
+    overflow-y: auto;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-top: none;
+    border-radius: 0 0 4px 4px;
+    z-index: 1000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Common styles for suggestion items */
+.suggestion-item,
+.medicine-suggestion-item,
+.patient-suggestion-item {
+    padding: 8px 12px;
+    cursor: pointer;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.suggestion-item:last-child,
+.medicine-suggestion-item:last-child,
+.patient-suggestion-item:last-child {
+    border-bottom: none;
+}
+
+.suggestion-item:hover,
+.suggestion-item.active,
+.medicine-suggestion-item:hover,
+.medicine-suggestion-item.active,
+.patient-suggestion-item:hover,
+.patient-suggestion-item.active {
+    background-color: #f5f5f5;
+}
+
+/* Styles for item content */
+.suggestion-item .name,
+.medicine-suggestion-item .medicine-name,
+.patient-suggestion-item .patient-name {
+    font-weight: 600;
+}
+
+.suggestion-item .details,
+.medicine-suggestion-item .medicine-details,
+.patient-suggestion-item .patient-details {
+    font-size: 0.8rem;
+    color: #666;
+}
