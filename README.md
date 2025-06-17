@@ -13,54 +13,11 @@ A modern web-based hospital management system that provides real-time updates fo
 
 ## 🏗️ Tech Stack
 
-- **Frontend**: React, TypeScript, TailwindCSS
+- **Frontend**: HTML,CSS,Javascript
 - **Backend**: Node.js, Express
 - **Database**: MongoDB
 - **Real-time Updates**: Socket.io
 - **Authentication**: JWT
-
-## 🚀 Getting Started
-
-### Prerequisites
-
-- Node.js (v18 or higher)
-- MongoDB
-- npm or yarn
-
-### Installation
-
-1. Clone the repository
-```bash
-git clone [repository-url]
-cd smart-hospital-system
-```
-
-2. Install dependencies
-```bash
-# Install frontend dependencies
-cd frontend
-npm install
-
-# Install backend dependencies
-cd ../backend
-npm install
-```
-
-3. Set up environment variables
-```bash
-# In backend directory
-cp .env.example .env
-# Edit .env with your MongoDB URI and other configurations
-```
-
-4. Start the development servers
-```bash
-# Start backend (from backend directory)
-npm run dev
-
-# Start frontend (from frontend directory)
-npm run dev
-```
 
 ## 📺 Display Screens
 
@@ -83,20 +40,6 @@ npm run dev
    - Treatment updates
    - Billing
 
-## 🔐 Environment Variables
 
-Backend (.env):
-```
-MONGODB_URI=your_mongodb_uri
-JWT_SECRET=your_jwt_secret
-PORT=5000
-```
 
-Frontend (.env):
-```
-VITE_API_URL=http://localhost:5000
-```
 
-## 📝 License
-
-MIT License 
